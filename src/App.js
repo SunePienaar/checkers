@@ -1,10 +1,21 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import StorePage from "./pages/StorePage";
+import CartPage from "./pages/CartPage";
+import Register from "./pages/Register"; // ✅ Import Register page
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Checkers Web Store</h1>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/store" element={<StorePage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/register" element={<Register />} /> {/* ✅ Add Register Route */}
+      </Routes>
+    </Router>
   );
 }
 
